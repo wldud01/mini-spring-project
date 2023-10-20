@@ -29,9 +29,17 @@ public class MemberService {
                 });
     }
     public Long join(Member member){
-        validateDuplicatedMember(member);
-        memberRepository.save(member);
-        return member.getId();
+        long start = System.currentTimeMillis();
+        try{
+            validateDuplicatedMember(member);
+            memberRepository.save(member);
+            return member.getId();
+        } finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish - start;
+            System.out.println("Join" + timeMs+"ms");
+        }
+
     }
     // 전체 회원 조회
     public List<Member> findMembers(){

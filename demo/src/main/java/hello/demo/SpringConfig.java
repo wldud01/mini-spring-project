@@ -2,6 +2,7 @@ package hello.demo;
 
 
 
+import hello.demo.aop.TimeTraceAop;
 import hello.demo.repository.JpaMemberRepository;
 import hello.demo.repository.MemberRepository;
 import hello.demo.service.MemberService;
@@ -30,5 +31,9 @@ public class SpringConfig {
        // return new MemoryMemberRepository();
         //return new JdbcTemplateMemberRepository(dataSource);
         return new JpaMemberRepository(em);
+    }
+    @Bean
+    public TimeTraceAop timeTraceAop(){
+        return  new TimeTraceAop();
     }
 }
