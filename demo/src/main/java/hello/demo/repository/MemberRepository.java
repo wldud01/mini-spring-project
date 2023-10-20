@@ -1,11 +1,13 @@
 package hello.demo.repository;
 
 import hello.demo.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 // member repository의 인터페이스 작성
+
 public interface MemberRepository {
     // 회원 저장
     Member save(Member member);
