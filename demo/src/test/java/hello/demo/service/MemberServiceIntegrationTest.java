@@ -1,10 +1,7 @@
 package hello.demo.service;
 
 import hello.demo.domain.Member;
-import hello.demo.repository.MemoryMemberRepository;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @Transactional
 public class MemberServiceIntegrationTest {
 
-    @Autowired  MemoryMemberRepository memberRepository ;
+   // @Autowired  MemoryMemberRepository memberRepository ;
     @Autowired MemberService memberService;
 
     // before each 동작하기 전에 실행하는 각각  메소드 생성
@@ -46,13 +43,6 @@ public class MemberServiceIntegrationTest {
         IllegalStateException e = assertThrows(IllegalStateException.class, ()-> memberService.join(member2));
         Assertions.assertEquals(e.getMessage(), "이미 존재하는 회원입니다");
 
-
-        //        try{
-//            memberService.join(member2);
-//            fail();
-//        } catch(IllegalStateException e){
-//            Assertions.assertEquals(e.getMessage(),"이미 존재하는 회원입니다");
-//        }
     }
     @Test
     void findMembers() {

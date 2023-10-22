@@ -34,6 +34,11 @@ public class JpaMemberRepository implements MemberRepository {
     }
 
     @Override
+    public Optional<Member> findByMbti(String mbti) {
+        return Optional.empty();
+    }
+
+    @Override
     public List<Member> findAll() {
         List<Member> result = em.createQuery("select  m from Member as  m",Member.class)
                 .getResultList();

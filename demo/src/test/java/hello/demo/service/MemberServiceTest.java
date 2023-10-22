@@ -1,32 +1,18 @@
 package hello.demo.service;
 
 import hello.demo.domain.Member;
-import hello.demo.repository.MemberRepository;
-import hello.demo.repository.MemoryMemberRepository;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MemberServiceTest {
 
-    MemoryMemberRepository memberRepository ;
+    //MemoryMemberRepository memberRepository ;
     MemberService memberService;
 
     // before each 동작하기 전에 실행하는 각각  메소드 생성
-    @BeforeEach
-    public void beforeEach(){
-        memberRepository  = new MemoryMemberRepository();
-        memberService  = new MemberService(memberRepository);
-    }
-    @AfterEach
-    public void afterEach(){
-        memberRepository.clearStore();
-    }
 
     @Test
     void join() {
@@ -53,13 +39,6 @@ class MemberServiceTest {
         IllegalStateException e = assertThrows(IllegalStateException.class, ()-> memberService.join(member2));
         Assertions.assertEquals(e.getMessage(), "이미 존재하는 회원입니다");
 
-
-        //        try{
-//            memberService.join(member2);
-//            fail();
-//        } catch(IllegalStateException e){
-//            Assertions.assertEquals(e.getMessage(),"이미 존재하는 회원입니다");
-//        }
     }
     @Test
     void findMembers() {

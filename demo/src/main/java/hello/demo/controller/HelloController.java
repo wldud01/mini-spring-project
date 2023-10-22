@@ -20,6 +20,7 @@ public class HelloController {
         model.addAttribute("name",name);
         return "hello-templete";
     }
+
     @GetMapping("hello-string")
     @ResponseBody
     public String helloString(@RequestParam("name") String name){
@@ -34,6 +35,7 @@ public class HelloController {
         return hello;
 
     }
+    //외부 파라미터 get set에 넣음
     static class Hello{
         private String name;
 

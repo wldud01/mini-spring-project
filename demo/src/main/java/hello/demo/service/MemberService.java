@@ -2,9 +2,7 @@ package hello.demo.service;
 
 import hello.demo.domain.Member;
 import hello.demo.repository.MemberRepository;
-import hello.demo.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;

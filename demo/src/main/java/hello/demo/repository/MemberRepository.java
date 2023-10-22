@@ -1,7 +1,6 @@
 package hello.demo.repository;
 
 import hello.demo.domain.Member;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +10,13 @@ import java.util.Optional;
 public interface MemberRepository {
     // 회원 저장
     Member save(Member member);
+
+    // user_id 찾기
     Optional<Member> findById(Long id);
+    // user_name
     Optional<Member> findByName(String name);
+    //user_mbti
+    Optional<Member> findByMbti(String mbti);
+    // 모든 유저
     List<Member> findAll();
 }

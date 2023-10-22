@@ -3,7 +3,6 @@ package hello.demo.aop;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.hibernate.annotations.Comment;
 
 @Aspect
 public class TimeTraceAop {
